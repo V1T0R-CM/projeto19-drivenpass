@@ -12,7 +12,20 @@ datasource db {
 }
 
 model Account {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+  id          Int           @id @default(autoincrement())
+  email       String        @unique
+  password    String
+  Credentials Credentials[]
+}
+
+model Credentials {
+  id              Int     @id @default(autoincrement())
+  url             String
+  userName        String
+  password        String
+  credentialTitle String  @unique
+  account         Account @relation(fields: [accountId], references: [id])
+  accountId       Int
+
+  @@unique([credentialTitle, accountId])
 }
