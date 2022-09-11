@@ -33,7 +33,7 @@ model Credentials {
 
 model Notes {
   id        Int     @id @default(autoincrement())
-  title     String  @unique
+  title     String  @db.VarChar(50)
   content   String  @db.VarChar(1000)
   account   Account @relation(fields: [accountId], references: [id])
   accountId Int
