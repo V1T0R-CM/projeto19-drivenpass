@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express";
-import { credentialsSchema } from "../schemas/credentialsSchema.js";
+import { notesSchema } from "../schemas/notesSchema.js";
 import { validateToken } from "../utils/token.js";
 
-export function postCredentialValidation(req: Request, res: Response, next: NextFunction) {
+export function postNoteValidation(req: Request, res: Response, next: NextFunction) {
     const token = req.headers.authorization.replace("Bearer ", "");
-    const validation = credentialsSchema.validate(req.body);
+    const validation = notesSchema.validate(req.body);
     const account = validateToken(token);
 
     if (validation.error) throw { code: "BadRequest", message: validation.error.message };

@@ -16,6 +16,7 @@ model Account {
   email       String        @unique
   password    String
   Credentials Credentials[]
+  Notes       Notes[]
 }
 
 model Credentials {
@@ -28,4 +29,14 @@ model Credentials {
   accountId       Int
 
   @@unique([credentialTitle, accountId])
+}
+
+model Notes {
+  id        Int     @id @default(autoincrement())
+  title     String  @unique
+  content   String  @db.VarChar(1000)
+  account   Account @relation(fields: [accountId], references: [id])
+  accountId Int
+
+  @@unique([title, accountId])
 }
