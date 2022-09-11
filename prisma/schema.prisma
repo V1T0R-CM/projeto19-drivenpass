@@ -17,6 +17,7 @@ model Account {
   password    String
   Credentials Credentials[]
   Notes       Notes[]
+  Wifis       Wifis[]
 }
 
 model Credentials {
@@ -39,4 +40,13 @@ model Notes {
   accountId Int
 
   @@unique([title, accountId])
+}
+
+model Wifis {
+  id        Int     @id @default(autoincrement())
+  name      String
+  password  String
+  wifiTitle String
+  account   Account @relation(fields: [accountId], references: [id])
+  accountId Int
 }
