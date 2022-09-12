@@ -1,6 +1,6 @@
 # projeto19-drivenpass
 
-Api disponive no endereço (https://driven-pass19-api.herokuapp.com)
+Api disponivel no endereço (https://driven-pass19-api.herokuapp.com)
 
 # Rotas de autenticação:
 
