@@ -18,5 +18,5 @@ export async function loginAccount(accontData: IAccountData) {
     if (!user) throw { code: "NotFound", message: "Email não esta cadastrado" };
     if (!comparePasswords) throw { code: "Unauthorized", message: "Não foi possivel acessar conta" }
 
-    return generateToken(user.id, user.email)
+    return { token: generateToken(user.id, user.email) }
 }
