@@ -4,5 +4,5 @@ import { IWifiBody } from '../types/wifiTypes.js';
 export const wifisSchema = Joi.object<IWifiBody>({
     name: Joi.string().required(),
     password: Joi.string().required(),
-    wifiTitle: Joi.string().required()
+    wifiTitle: Joi.string().max(50).required()
 });

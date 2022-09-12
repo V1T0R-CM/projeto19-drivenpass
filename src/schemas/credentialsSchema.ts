@@ -5,5 +5,5 @@ export const credentialsSchema = Joi.object<ICredentialBody>({
     url: Joi.string().required(),
     userName: Joi.string().required(),
     password: Joi.string().required(),
-    credentialTitle: Joi.string().required()
+    credentialTitle: Joi.string().max(50).required()
 });
