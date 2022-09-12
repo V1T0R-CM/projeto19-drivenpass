@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "node dist/index.js",
     "dev": "nodemon ./src/index.ts"
   },
   "author": "",
