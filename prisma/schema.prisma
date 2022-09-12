@@ -18,6 +18,7 @@ model Account {
   Credentials Credentials[]
   Notes       Notes[]
   Wifis       Wifis[]
+  Cards       Cards[]
 }
 
 model Credentials {
@@ -49,4 +50,17 @@ model Wifis {
   wifiTitle String
   account   Account @relation(fields: [accountId], references: [id])
   accountId Int
+}
+
+model Cards {
+  id             Int     @id @default(autoincrement())
+  number         String  @unique @db.Char(16)
+  holderName     String
+  securityCode   String
+  expirationDate String
+  password       String
+  isVirtual      Boolean
+  type           String
+  account        Account @relation(fields: [accountId], references: [id])
+  accountId      Int
 }
